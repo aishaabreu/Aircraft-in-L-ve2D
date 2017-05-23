@@ -32,7 +32,7 @@ function love.load(arg)
 
     createEnemyTimerMax = 0.4
     enemy = {
-        createEnemyTimer = EnemyTimer,
+        createEnemyTimer = createEnemyTimerMax,
         all = {},
         img = love.graphics.newImage('assets/enemy.png')
     }
