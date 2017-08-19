@@ -39,8 +39,8 @@ function restart(love, player, enemy, bullet, var, canShootTimerMax, createEnemy
         bullet.canShootTimer = canShootTimerMax
         enemy.createEnemyTimer = createEnemyTimerMax
 
-        player.x = 100
-        player.y = 310
+        player.x = player.initial.x
+        player.y = player.initial.y
 
         var.score = 0
         var.isAlive = true

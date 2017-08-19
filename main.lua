@@ -13,12 +13,18 @@ function love.load(arg)
         }
     }
 
+    local img = love.graphics.newImage('assets/aircraft.png')
+    local initial = {
+        x = (love.graphics.getWidth() / 2) - (img:getWidth() / 2),
+        y = ((love.graphics.getHeight() / 4) * 3) - (img:getHeight() / 2)
+    }
     objs = {
         player = {
-            x = 100, 
-            y = 310, 
-            speed = 200, 
-            img = love.graphics.newImage('assets/aircraft.png')
+            initial = initial,
+            x = initial.x,
+            y = initial.y, 
+            speed = love.graphics.getWidth() * 0.50, 
+            img = img
         },
         bullet = {
             canShoot = true,
