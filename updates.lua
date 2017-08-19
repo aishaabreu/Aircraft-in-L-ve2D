@@ -19,15 +19,15 @@ function enem(love, dt, var, createEnemyTimerMax, enemy, player, bullet)
     if enemy.createEnemyTimer < 0 then
         enemy.createEnemyTimer = createEnemyTimerMax
 
-        randomNumber = math.random(10, love.graphics.getWidth() - 10)
-        newEnemy = { x = randomNumber, y = -10 }
+        local randomNumber = math.random(0, (love.graphics.getWidth() - enemy.img:getWidth()))    
+        local newEnemy = { x = randomNumber, y = -enemy.img:getHeight() }
         table.insert(enemy.all, newEnemy)
     end
 
     for i, en in ipairs(enemy.all) do
         en.y = en.y + (200 * dt)
 
-        if en.y > 850 then
+        if en.y > (200 + love.graphics.getHeight()) then
             table.remove(enemy.all, i)
         end
     end
