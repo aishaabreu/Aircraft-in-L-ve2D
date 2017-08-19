@@ -36,14 +36,17 @@ function touch(love, dt, params, objs)
         cmd.shoot(objs.player, objs.bullet, params.canShootTimerMax)
 
         local touch_x, touch_y = love.touch.getPosition(touches[0] or touches[1])
-        if objs.player.x > touch_x then
+        local player_x = objs.player.x + (objs.player.img:getWidth() / 2)
+        local player_y = objs.player.y + (objs.player.img:getHeight() / 2)
+
+        if (player_x > touch_x) and not (player_x < touch_x) then
             cmd.left(objs.player, dt)
-        elseif objs.player.x < touch_x then
+        elseif (player_x < touch_x) and not (player_x > touch_x) then
             cmd.right(objs.player, dt)
         end
-        if objs.player.y > touch_y then
+        if (player_y > touch_y) and not (player_y < touch_y) then
             cmd.up(objs.player, dt)
-        elseif objs.player.y < touch_y then
+        elseif (player_y < touch_y) and not (player_y > touch_y) then
             cmd.down(objs.player, dt)
         end
     end
