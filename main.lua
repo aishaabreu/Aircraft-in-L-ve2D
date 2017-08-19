@@ -36,6 +36,7 @@ end
 
 function love.update(dt)
     ctrl.keyboard(love, dt, params, objs)
+    ctrl.touch(love, dt, params, objs)
     updates.bullet(love, dt, params.canShootTimerMax, objs.bullet)
     updates.enemy(love, dt, params.var, params.createEnemyTimerMax,
                   objs.enemy, objs.player, objs.bullet)
