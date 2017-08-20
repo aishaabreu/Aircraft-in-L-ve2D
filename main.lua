@@ -18,6 +18,7 @@ function love.load(arg)
         x = (love.graphics.getWidth() / 2) - (img:getWidth() / 2),
         y = ((love.graphics.getHeight() / 4) * 3) - (img:getHeight() / 2)
     }
+
     objs = {
         player = {
             initial = initial,

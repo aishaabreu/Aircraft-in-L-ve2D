@@ -1,24 +1,28 @@
-function left(player, dt)
-    if player.x > 0 then -- binds us to the map
-        player.x = player.x - (player.speed*dt)
+function left(player, move)
+    local to = player.x - move
+    if to >= 0 then
+        player.x = to
     end
 end
 
-function right(player, dt)
-    if player.x < (love.graphics.getWidth() - player.img:getWidth()) then
-        player.x = player.x + (player.speed*dt)
+function right(player, move)
+    local to = player.x + move
+    if to <= (love.graphics.getWidth() - player.img:getWidth()) then
+        player.x = to
     end
 end
 
-function up(player, dt)
-    if player.y > 0 then
-        player.y = player.y - (player.speed*dt)
+function up(player, move)
+    local to = player.y - move
+    if to >= 0 then
+        player.y = to
     end
 end
 
-function down(player, dt)
-    if player.y < (love.graphics.getHeight() - player.img:getHeight()) then
-        player.y = player.y + (player.speed*dt)
+function down(player, move)
+    local to = player.y + move
+    if to <= (love.graphics.getHeight() - player.img:getHeight()) then
+        player.y = to
     end
 end
 
